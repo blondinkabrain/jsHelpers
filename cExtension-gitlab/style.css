@@ -1,0 +1,28 @@
+.rc-3-6-3, .rc-3-6-3-10, .rc-3-7-0 {
+	height: 34px;
+}
+.page-title .branch {
+   display: inline-block;
+   padding: 0 15px;
+}
+.branch {
+   font-size: 23px;
+   color: red;
+}
+.branch:hover {
+   background-color: #FFFF00;
+   cursor: pointer;
+}
+.branch:active {
+   background-color: #CCCC00;
+}
+.popup {
+   height: 34px;
+   width: 150px
+}
+.ws-hidden {
+   display: none;
+}
+.merge-request .merge-request-tabs li a{
+   padding: 5px 15px;
+}
