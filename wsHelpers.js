@@ -7,3 +7,6 @@ $ws.core.attachInstance('SBIS3.CORE.Dialog', {
    template: 'js!SBIS3.CONTROLS.PrintMassSelectorDialog'});
 $ws.core.attachInstance('Control/Area:Dialog',{
    template: 'js!SBIS3.CONTROLS.PrintMassSelectorDialog'});
+   
+   //------------------------- Замыкание на setTimeout
+   var testTimeOut = function(){ var attr= '123'; function fun() {func(attr);} setTimeout(fun, 5000)}
