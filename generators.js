@@ -1,23 +1,25 @@
-//Быстрая запись в базу 1000 записей через новый dataSource
+//Быстрая запись в базу 100 записей через новый dataSource
 function doRequest(i) {
    // simulate xhr
    console.log('Starting request to ' + i);
-   var view = $ws.single.ControlStorage.get('ListViewDS1');
+   var view = $ws.single.ControlStorage.get('DataGridBL');
    view._dataSource.create().addCallback(function (rec) {
       rec.set('Содержимое', 'Title ' + i);
+	
       rec.set('Завершена', !!(Math.round(Math.random())));
-      view._dataSet.addRecords(rec);
-      it.next();
+      view._dataSource.update(rec).addBoth(function(){
+	it.next();
+	});
+      
    });
 }
 
 function *sequentLoad(){
    var i =0;
-   var view = $ws.single.ControlStorage.get('ListViewDS1');
-   for (i = 0; i < 1000; i++) {
+   var view = $ws.single.ControlStorage.get('DataGridBL');
+   for (i = 0; i < 100; i++) {
       yield doRequest(i);
    }
-   view._dataSource.sync(view._dataSet);
    return;
 }
 
