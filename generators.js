@@ -94,3 +94,27 @@ function *sequentLoad(){
 var it = sequentLoad();
 it.next();
 
+////////////////////////////////Перебрасывание query
+//Быстрая запись в базу 100 записей через новый dataSource
+function doRequest(i, q) {
+   // simulate xhr
+   console.log('Starting request to ' + i);
+   var view = $ws.single.ControlStorage.getByName("listSPPBrw");
+   view.setQuery(q).addBoth(function(){
+      it.next()
+   });
+}
+
+function *sequentLoad(){
+   var i =0;
+   var t = $ws.single.ControlStorage.getByName("listSPPBrw");
+   var q = t.getQuery();
+   for (i = 0; i < 100; i++) {
+      yield doRequest(i, i%2 ? q : $ws.core.merge(q, {Реквизиты: "втб"}));
+   }
+   return;
+}
+
+
+var it = sequentLoad();
+it.next();
