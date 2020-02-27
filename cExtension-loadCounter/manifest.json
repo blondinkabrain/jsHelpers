@@ -1,0 +1,26 @@
+{
+   "manifest_version": 2,
+   "name": "Page Loads Counter",
+   "version": "1",
+
+   "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+   },
+
+   "content_scripts": [{
+      "matches": ["https://fix-online.sbis.ru/*", "https://test-online.sbis.ru/*",  "https://dev-online.sbis.ru/*"],
+      "js": ["content.js"]
+   }],
+
+   "permissions": [
+      "tabs",
+      "storage"
+   ],
+
+   "browser_action": {
+      "default_title": "Page Loads Counter",
+      "default_icon": "icon.png"
+   }
+}
