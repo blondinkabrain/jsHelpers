@@ -10,7 +10,7 @@
    },
 
    "content_scripts": [{
-      "matches": ["https://fix-online.sbis.ru/*", "https://test-online.sbis.ru/*",  "https://dev-online.sbis.ru/*"],
+      "matches": ["https://fix-online.sbis.ru/*", "https://test-online.sbis.ru/*", "https://pre-test-online.sbis.ru/*", "https://dev-online.sbis.ru/*"],
       "js": ["content.js"]
    }],
 
